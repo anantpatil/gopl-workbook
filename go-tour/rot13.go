@@ -26,7 +26,7 @@ func (r *rot13Reader) Read(b []byte) (int, error) {
 		}
 	}
 	for i, x := range b {
-		c := int(x)
+		c := x
 		if (c >= 'a' && c <= 'm') || (c >= 'A' && c <= 'M') {
 			c += 13
 		} else if (c >= 'n' && c <= 'z') || (c >= 'N' && c <= 'Z') {
@@ -34,7 +34,7 @@ func (r *rot13Reader) Read(b []byte) (int, error) {
 		} else {
 			// pass
 		}
-		b[i] = byte(c)
+		b[i] = c
 	}
 	return n, err
 }
@@ -45,4 +45,3 @@ func main() {
 	io.Copy(os.Stdout, &r)
 	fmt.Println() // just add new line in end to push promt to next line
 }
-

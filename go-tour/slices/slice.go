@@ -13,8 +13,8 @@ func main() {
 	for i := 0; i < 5; i++ {
 		v[i] = make([]uint, 6) // 6 columns
 		for j := 0; j < 6; j++ {
-			v[i][j] = (uint) ((i + j) / 2)
+			v[i][j] = (uint)((i + j) / 2)
 		}
+		fmt.Println(v[i])
 	}
-	fmt.Println(v)
 }

@@ -44,7 +44,9 @@ func main() {
 	// first test walk by making a tree and printing it,
 	// the output should be sorted 1k, 2k..10k
 	ch := make(chan int)
-	go Walk(tree.New(1), ch)
+	t := tree.New(1)
+	fmt.Println(t)
+	go Walk(t, ch)
 	for i := 0; i < 10; i++ {
 		fmt.Println(<-ch)
 	}

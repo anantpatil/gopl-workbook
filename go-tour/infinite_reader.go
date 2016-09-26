@@ -18,7 +18,3 @@ func main() {
 	// implement a reader which makes sure that the MyReader reads infinitely
 	// https://github.com/golang/tour/blob/master/reader/validate.go
 }
-
-
-
-
