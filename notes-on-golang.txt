@@ -1,0 +1,216 @@
+
+----
+
+Package names are usually the last name of path
+
+The rand package is imported as "math/rand", but the files in
+rand package have "package rand" as package declaration
+----
+
+Exported Names: A name is exported if it starts with a capital letter.
+e.g. Pizza, Pi, Scale etc.
+
+----
+
+Functions:
+1. Multiple return values
+func swap(x, y string) (string, string) {
+        return y, x)
+}
+
+2. can have named return values
+func split(sum int) (x, y int) {
+        x := (sum * 4) / 9
+            y = sum -x
+                return
+}
+
+----
+Variables with var
+
+var can be at package level
+type can be omitted when value is present
+short variable declarations using := allowed in funcs
+
+var x int
+var y = 19.4 //valid, y is of type float64
+u := "Yes" // valid, allowed in functions
+
+
+----
+
+Every statement in go file starts with a import, var, func, interface,
+struct etc 
+So, you cannot have a short form declaration at a global level. Short
+form declarations are allowed only in functions.
+
+package main
+
+import "fmt"
+
+var X int
+
+y := 10 // not allowed
+
+type Node struct {
+        next *Node
+            val int
+}
+
+func f() {
+        fmt.Println(X)
+}
+
+
+----
+
+Types in go:
+
+bool
+string
+int uint 
+int8 uint8
+int16 uint16
+int32 uint32
+int64 uint64
+uintptr
+byte // alias for uint8
+
+rune // alias for int32; represents unicaode codepoint
+
+float32 float64
+
+complex64 complex128
+
+On 32 bit system, int, uint, uintptr are 32 bits wide
+On 64 bit system they are 64 bits wide
+
+----
+
+Zero values given for variables declared without initial values
+0 for numeric types (int, float etc)
+false for bool
+"" for string
+
+----
+
+There are no implicit convertions in go (C has)
+T(v)
+
+In Go:
+
+i := 42
+f := float64(i)
+u := uint(f)
+
+
+In C:
+
+int main(int argc, char *argv[])
+{
+    int x = 64;
+    float y = x; // fine in C not in go
+    printf("%d, %f\n", x, y);
+}
+
+Prints:
+64, 64.000000
+
+----
+
+Type inference
+
+i := 42 //int
+j := 2.123 //float64
+g := 0.3 + 6i //complex128
+
+----
+
+Constants are declared with const keyword
+const keyword can be at package level or within any block
+Constants can be character, string, boolean or numeric values
+Constants cannot be declared using := sytax
+
+Constants are high-precision _values_
+
+* Untyped constants take the type needed by its context
+
+const (
+    Big = 1 << 100 // 2^100
+    Small = Big >> 99 // 2 ^ 1
+)
+
+// Big and Small will take the type needed by context
+func needFloat( x float64) float64 {
+        return x * 0.1
+}
+
+func main() {
+        needFloat(Big) // Big will become float64 type
+        needInt(Small) // Small will become int
+}
+
+----
+
+for: Only looping construct in go, no other (while, do/while not there)
+for statement has three components separated by semi-colon
+Unlike in C, there are no paranthesis e.g. for(...)
+
+        for init stmt; conditional expression; post stmt {
+                // statements
+        }
+
+Any of the three components or all can be omitted.
+
+init stmt: executed before first iteration, any variable declaration is
+visible only in the scope of for statement
+
+Loop stops iterating when conditional expression evaluates to false.
+
+Note: Difference b/w expression and stmt
+        - Statements are instructions one per line in a programming
+        language
+        - Expressions are statements that produce a value or values, they
+        are made up of literals, identifiers and operators.
+
+for sum < 1000 {
+    // while loop
+}
+
+for {
+    // for-ever loop
+}
+
+----
+
+if construct is similar to for, with just an expression in it
+The expression need not be surrounded by ()
+
+* Braces { } are mandotary.
+
+if x < 0 {
+    //
+}
+
+or 
+
+if (x < 0) {
+    //
+}
+
+Both above are valid.
+
+if can start with a short statement like for init statement
+any variable declared in this stmt is only valid in the
+scope of if
+
+However, v is visible in any else blocks
+
+    if v := math.Pow(x, n); v < limit {
+            // do something with v
+    } else {
+            // v is visible
+    }
+
+// v not visible here
+
