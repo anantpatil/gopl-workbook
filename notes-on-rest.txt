@@ -1,0 +1,49 @@
+REST.
+    
+    Basic commands and respective actions:
+    ---
+    GET         /               list/retrieve all items
+    GET         /x/id           retrieve item of type x with id
+    POST        /x              create item of type x
+    PUT         /x/id           update item of type x with id
+    DELETE      /x/id           delete an item of type x with id
+
+
+    About REST
+    ----
+    <I>
+    Resource based.
+    Noun based not action or verb based.
+    URIs identify the resource.
+    Multiple URIs may refer to same resource.
+    Representations are separate from resources.
+        JSON, CSV etc representations of resource person.
+        Could be partial or full representation.
+    HTTP action is used to command what action needs to be taken on the
+    resource.
+
+    <II>
+    Representations of resource is used for communication between
+    servers/components.
+    Representation is how resources get manipulated.
+    Part of resource state or entire resource object.
+    Typically, JSON or XML.
+    Example:
+        Resource: Person
+        Service: contact information (GET)
+        Representation:
+            name, address, phone number
+            JSON or XML format
+
+    <III>
+    Six constraints apply to REST architecture:
+        Client Server
+        Stateless
+        Cacheable
+        Uniform interface: define interface between client and server
+                           URIs for resources, HTTP stack for actions
+                           Irrespective how many components are there or
+                           how many layers, there is uniformity in
+                           interface used for communication.
+        Layered System:
+        Code-On-Demand:
