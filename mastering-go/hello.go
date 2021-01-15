@@ -7,7 +7,7 @@ import (
 	"github.com/google/go-cmp/cmp"
 )
 
-func main() {
+func main1() {
 	s := "mastering-go"
 	fmt.Println(s)
 	rs := morestrings.ReverseString(s)
