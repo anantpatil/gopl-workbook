@@ -1,10 +1,29 @@
 
 ----
 
-Package names are usually the last name of path
+Repositories -- (1..n) --> Modules -- (1..n) --> Packages.
 
-The rand package is imported as "math/rand", but the files in
+A repo typically has only one module.
+
+Modules were introduced in 1.13 version onwards.
+
+Module is set of packages that are released together, all packages
+within modules are at same version.
+
+Package is a directory containing files composing the package functions.
+
+Can modules be nested? You never import a module, you import packages.
+So having nested module shouldn't be a problem - the user just imports
+the packages. Module is meant for keeping packages together - they are
+versioned together.
+
+Package name declaration in source code file is the directory name
+typically. While importing FQDN of package name is given e.g.
+"example.com/user/module/package"
+
+e.g. The rand package is imported as "math/rand", but the files in
 rand package have "package rand" as package declaration
+
 ----
 
 Exported Names: A name is exported if it starts with a capital letter.
