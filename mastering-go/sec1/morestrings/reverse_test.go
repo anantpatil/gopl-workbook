@@ -7,7 +7,7 @@ func TestReverseString(t *testing.T) {
 		in, want string
 	}{
 		{"Hello, World!", "!dlroW ,olleH"},
-		{"123", "4321"},
+		{"123", "321"},
 		{"", ""},
 	}
 

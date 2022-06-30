@@ -15,6 +15,7 @@ import (
 func main() {
 	resp, err := http.Get("http://quotes.rest/qod")
 	if err != nil {
+		// Falal = Orint + sys,exit(1)
 		log.Fatal(err)
 	}
 	// Body of resp is os type io.ReadCloser

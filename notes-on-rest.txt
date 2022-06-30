@@ -1,5 +1,8 @@
 REST.
     
+    Although REST is an architectural pattern that can be implemented
+    using any protocol. HTTP suites it well.
+
     Basic commands and respective actions:
     ---
     GET         /               list/retrieve all items
@@ -13,9 +16,18 @@ REST.
     ----
     <I>
     Resource based.
-    Noun based not action or verb based.
-    URIs identify the resource.
+    Noun/Object based; not action or verb based.
+    Defitnition of Resource type plays major role in designing API.
+    e.g. GET /rhino => Gets you a rhino
+
+    URIs identify the resource. GET /rhine/xxx-yyy => Fetch rhino with
+    ID xxx-yyy
+
     Multiple URIs may refer to same resource.
+
+    /rhino/xxx-yyy, /rhino/blueboy refers to a rhino with id xxx-yyy and
+    name blueboy
+
     Representations are separate from resources.
         JSON, CSV etc representations of resource person.
         Could be partial or full representation.
