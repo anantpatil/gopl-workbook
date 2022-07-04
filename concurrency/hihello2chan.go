@@ -18,7 +18,7 @@ func printHello(ch1 chan bool, ch2 chan bool) {
 	}
 }
 
-func main() {
+func main2() {
 	ch1 := make(chan bool)
 	ch2 := make(chan bool)
 	go printHi(ch1, ch2)

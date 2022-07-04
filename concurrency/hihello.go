@@ -52,7 +52,7 @@ func hello1(ch chan int) {
 	}
 }
 
-func main() {
+func _main() {
 	// same as make(chan int) - unbuffered channel
 	ch := make(chan int, 0)
 	go hi1(ch)
